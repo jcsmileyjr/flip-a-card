@@ -1,38 +1,68 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    ". title ."
+    ". info ."
+    "art1 game art2"
+    ". restart .";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 900px) {
+  .App {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    ". title ."
+    ". info ."
+    ". game ."
+    "art1 restart art2";
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media only screen and (max-width: 500px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "title"
+    "info"
+    "game"
+    "restart";
+  }
+
+  .art1, .art2 {
+    display: none;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  grid-area: title;
+  background-color: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.info {
+  grid-area: info;
+  background-color: green;
+}
+
+.game {
+  grid-area: game;
+  background-color: navy;
+}
+
+.art1 {
+  grid-area: art1;
+  background-color: purple;
+}
+
+.art2 {
+  grid-area: art2;
+  background-color: pink;
+}
+
+.restart {
+  grid-area: restart;
+  background-color: orange;
 }
