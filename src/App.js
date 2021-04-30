@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import playingCards from './data/cards';
 
 import Card from './components/Card/Card';
@@ -12,30 +12,39 @@ import Restart from './components/Restart/restart';
 
 function App() {
   const [firstCard, setFirstCard] = useState(0);
-  const [matchingCard, setMatchingCard] = useState(0);
   const [score, setScore] = useState(0);
+  const [currentDeck, setCurrentDeck] = useState([]);
 
-  // const matchCardID = (color) => {
+  useEffect(() => { getCards(); }, []);
 
-  //   // Save first card if there is no current card under consideration
-  //   if(firstCard === ""){
-  //     setFirstCard(card);
-  //   }else{
-  //     // if that color matches the first color
-  //     if(firstCard === color){
-  //       const newScore = score + 10;
-  //       setScore(newScore);
-  //       alert(score);
-  //     }else{
-  //       alert("no match")
-  //     }
-  //   }
-  // }
+  const getCards = () => {
+    setCurrentDeck(playingCards());
+  }
 
-  const cards = playingCards();
+  const matchCardID = (index) => {
+
+    // const currentCard = 
+    // // Save first card if there is no current card under consideration
+    // if(firstCard === ""){
+    //   setFirstCard(card);
+    // }else{
+    //   // if that color matches the first color
+    //   if(firstCard === color){
+    //     const newScore = score + 10;
+    //     setScore(newScore);
+    //     alert(score);
+    //   }else{
+    //     alert("no match")
+    //   }
+    // }
+  }
+
+  const cards = currentDeck;
   const gameArea = cards.map((index, card) => 
-    <Card id={card.id} cardColor={card.color}  />
+    <Card id={card.id} cardColor={card.color} getID= {matchCardID(index)}  />
   );
+
+  
 
   return (
     <main className="App">
