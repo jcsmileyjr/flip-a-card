@@ -1,23 +1,24 @@
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: .2fr .2fr 1fr .2fr;
+  grid-template-rows: .1fr .1fr 1fr .2fr;
   grid-template-areas:
     ". title ."
     ". info ."
     "art1 game art2"
     ". restart .";
-  background-color: #adf5bc;
+ 
+  height: 100vh;
 }
 
 @media only screen and (max-width: 900px) {
   .App {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: .2fr .2fr 1fr 1fr;
+    grid-template-rows: .2fr .2fr 1fr .2fr;
     grid-template-areas:
-    ". title ."
+    "title title title"
     ". info ."
-    ". game ."
+    "game game game"
     "art1 restart art2";
   }
 }
@@ -25,7 +26,7 @@
 @media only screen and (max-width: 500px) {
   .App {
     grid-template-columns: 1fr;
-    grid-template-rows: .2fr .2fr 1fr .2fr;
+    grid-template-rows: .1fr .1fr 1fr .2fr;
     grid-template-areas:
     "title"
     "info"
@@ -64,15 +65,24 @@
 
 .art1 {
   grid-area: art1;
-  background-color: purple;
 }
 
 .art2 {
   grid-area: art2;
-  background-color: pink;
+}
+
+.floatRight {
+  float: right;
+}
+
+.art__style{
+  max-height: 12rem;
+  max-width: 15rem;
 }
 
 .restart {
   grid-area: restart;
-  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

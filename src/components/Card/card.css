@@ -2,7 +2,19 @@
 .card__style {
     flex: 1 0 21%;
     margin: 5px;
-    height: 5rem;
+    height: 11.5rem;
     background-color: white;
     border: 1px solid navy;
+}
+
+@media only screen and (max-width: 900px) {
+    .card__style{
+        height: 7.5rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .card__style{
+        height: 5rem;
+    }
 }
