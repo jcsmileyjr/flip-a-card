@@ -1,19 +1,19 @@
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: .2fr .2fr 1fr .2fr;
   grid-template-areas:
     ". title ."
     ". info ."
     "art1 game art2"
     ". restart .";
-  background-color: #FAFCD0;
+  background-color: #adf5bc;
 }
 
 @media only screen and (max-width: 900px) {
   .App {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: .2fr .2fr 1fr 1fr;
     grid-template-areas:
     ". title ."
     ". info ."
@@ -25,7 +25,7 @@
 @media only screen and (max-width: 500px) {
   .App {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: .2fr .2fr 1fr .2fr;
     grid-template-areas:
     "title"
     "info"
@@ -50,7 +50,10 @@
 
 .info {
   grid-area: info;
-  background-color: green;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  
 }
 
 .game {
