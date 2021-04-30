@@ -7,6 +7,7 @@
     ". info ."
     "art1 game art2"
     ". restart .";
+  background-color: #FAFCD0;
 }
 
 @media only screen and (max-width: 900px) {
@@ -39,7 +40,12 @@
 
 .title {
   grid-area: title;
-  background-color: red;
+}
+
+.title__style {
+  font-size: 3rem;
+  text-align: center;
+  word-spacing: .1em;
 }
 
 .info {
@@ -49,7 +55,8 @@
 
 .game {
   grid-area: game;
-  background-color: navy;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .art1 {
