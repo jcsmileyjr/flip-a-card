@@ -9,8 +9,8 @@ const Card = props => {
     }
 
     return(
-        <main className={flipped ? "back card__style":"front card__style"} onClick={()=> {flip()}}>
-            
+        <main className={flipped ? "back card__style":"front card__style"} onClick={()=> {flip(); props.getID()}}>
+            <p>{props.cardColor}</p>
         </main>
     );
 }

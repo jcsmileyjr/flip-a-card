@@ -11,7 +11,7 @@ import cartoonLady from './assets/laying.png';
 import Restart from './components/Restart/restart';
 
 function App() {
-  const [firstCard, setFirstCard] = useState(0);
+  const [firstCardIndex, setFirstCard] = useState("");
   const [score, setScore] = useState(0);
   const [currentDeck, setCurrentDeck] = useState([]);
 
@@ -21,27 +21,39 @@ function App() {
     setCurrentDeck(playingCards());
   }
 
+  // Match the colors
   const matchCardID = (index) => {
+    let currentCard = currentDeck[index];
 
-    // const currentCard = 
-    // // Save first card if there is no current card under consideration
-    // if(firstCard === ""){
-    //   setFirstCard(card);
-    // }else{
-    //   // if that color matches the first color
-    //   if(firstCard === color){
-    //     const newScore = score + 10;
-    //     setScore(newScore);
-    //     alert(score);
-    //   }else{
-    //     alert("no match")
-    //   }
-    // }
+    // If there is no previously saved card, save the current selected's index
+    if(firstCardIndex === ""){
+      setFirstCard(index);
+      currentCard.correct = true;
+    }else{
+      //Matcht the previous saved card's color to the current card's color
+      let oldCard = currentDeck[firstCardIndex];
+      console.log(`old card color is ${oldCard.color}`)
+      console.log(`current card color is ${currentCard.color}`)
+      if(currentCard.color === oldCard.color){
+        setScore(score + 10);
+        oldCard.correct = true;
+        currentCard.correct = true;
+       console.log("match")
+      }else{
+        currentCard.correct = false;
+        oldCard.correct = false;
+        console.group("no match")
+      }
+
+      // Reset the matching
+      setFirstCard("");
+    }
+
   }
 
   const cards = currentDeck;
-  const gameArea = cards.map((index, card) => 
-    <Card id={card.id} cardColor={card.color} getID= {matchCardID(index)}  />
+  const gameArea = cards.map((card, index) => 
+    <Card key={index} id={card.id} cardColor={card.color} getID= {() => {matchCardID(index)}}  />
   );
 
   
