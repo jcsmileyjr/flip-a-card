@@ -1,5 +1,5 @@
 const unmixedCards = [
-    {id: 0, color: "red"},
+    {id: 16, color: "red"},
     {id: 1, color: "red"},
     {id: 2, color: "blue"},
     {id: 3, color: "blue"},
@@ -17,14 +17,14 @@ const unmixedCards = [
     {id: 15, color: "pink"},
 ];
 
-const playingCards = () => {
+const getCards = () => {
     const cards = unmixedCards.map(card => {
         return card;
     });
     return cards;
 }
 
-export default playingCards;
+export default getCards;
 
 
 

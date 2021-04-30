@@ -1,5 +1,6 @@
 
 import './App.css';
+import React, {useState} from 'react';
 import playingCards from './data/cards';
 
 import Card from './components/Card/Card';
@@ -10,10 +11,30 @@ import cartoonLady from './assets/laying.png';
 import Restart from './components/Restart/restart';
 
 function App() {
+  const [firstCard, setFirstCard] = useState(0);
+  const [matchingCard, setMatchingCard] = useState(0);
+  const [score, setScore] = useState(0);
+
+  // const matchCardID = (color) => {
+
+  //   // Save first card if there is no current card under consideration
+  //   if(firstCard === ""){
+  //     setFirstCard(card);
+  //   }else{
+  //     // if that color matches the first color
+  //     if(firstCard === color){
+  //       const newScore = score + 10;
+  //       setScore(newScore);
+  //       alert(score);
+  //     }else{
+  //       alert("no match")
+  //     }
+  //   }
+  // }
 
   const cards = playingCards();
-  const gameArea = cards.map((cards) => 
-    <Card />
+  const gameArea = cards.map((index, card) => 
+    <Card id={card.id} cardColor={card.color}  />
   );
 
   return (

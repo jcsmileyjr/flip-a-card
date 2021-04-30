@@ -2,6 +2,14 @@
 .card__style {
     flex: 1 0 21%;
     margin: 5px;
-    background-color: white;
+    /* background-color: white; */
     border: 1px solid navy;
+}
+
+.back {
+    background-color: purple;
+}
+
+.front {
+    background-color: green;
 }
