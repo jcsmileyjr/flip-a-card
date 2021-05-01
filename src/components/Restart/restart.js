@@ -1,9 +1,9 @@
 import './restart.css';
 
-const Restart = () => {
+const Restart = (props) => {
     return(
         <main>
-            <button type="button" className="button__style">Restart</button>
+            <button type="button" className="button__style" onClick={()=>{props.reset()}}>Restart</button>
         </main>
     )
 };

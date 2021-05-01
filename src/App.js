@@ -14,16 +14,33 @@ function App() {
   const [firstCardIndex, setFirstCard] = useState("");
   const [score, setScore] = useState(0);
   const [currentDeck, setCurrentDeck] = useState([]);
+  const [counter, setCounter] = useState(60);
 
   useEffect(() => { getCards(); }, []);
+
+  useEffect(() => {
+    const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+    return () => clearInterval(timer);
+  }, [counter]);
 
   const getCards = () => {
     setCurrentDeck(playingCards());
   }
 
   const restartGame = () => {
-    setCurrentDeck(playingCards());
+    resetCards();// Manually reset cards correct property
     setScore(0);
+    setCounter(60);
+    console.table(currentDeck);
+  }
+
+  // Manually reset cards correct property in the restartGame()
+  const resetCards = () => {
+    let deck = currentDeck;
+    deck.forEach(card => {
+      card.correct = false;
+    });
   }
 
   // Match the colors
@@ -75,7 +92,7 @@ function App() {
       </section>
       <section className="info">
         <Score score={score} />
-        <Timer />
+        <Timer counter={counter} />
       </section>
       <section className="art1">
       <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
@@ -87,7 +104,7 @@ function App() {
         <img src={cartoonMan} className="art__style" alt="cartoon man dropping cards" />
       </section>
       <section className="restart">
-        <Restart />
+        <Restart reset={()=>restartGame()} />
       </section>
     </main>
   );
