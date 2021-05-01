@@ -2,8 +2,14 @@
 .card__style {
     flex: 1 0 21%;
     margin: 5px;
-    /* background-color: white; */
+    max-height: 10vh;
     border: 1px solid navy;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
 }
 
 .front {

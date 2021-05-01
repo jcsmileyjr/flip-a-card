@@ -78,7 +78,7 @@ function App() {
 
   const cards = currentDeck;
   const gameArea = cards.map((card, index) => 
-    <Card key={index} id={card.id} correct={card.correct} cardColor={card.color} flipCard= {() => {matchCardID(index)}}  />
+    <Card key={index} id={card.id} correct={card.correct} cardColor={card.color} image={card.picture} flipCard= {() => {matchCardID(index)}}  />
   );
 
   
