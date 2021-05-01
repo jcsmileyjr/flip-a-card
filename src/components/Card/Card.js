@@ -1,15 +1,11 @@
 
 import './card.css';
-import React, {useState} from 'react';
+import React from 'react';
 
 const Card = props => {
-    const [flipped, setFlipped] = useState(false);
-    const flip = () => {
-        setFlipped(!flipped);
-    }
 
     return(
-        <main className={flipped ? "back card__style":"front card__style"} onClick={()=> {flip(); props.getID()}}>
+        <main className={props.correct ? "back card__style":"front card__style"} onClick={()=> {props.flipCard()}}>
             <p>{props.cardColor}</p>
         </main>
     );

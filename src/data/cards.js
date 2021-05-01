@@ -10,7 +10,7 @@ const unmixedCards = [
     {id: 8, color: "yellow", correct: false},
     {id: 9, color: "yellow", correct: false},
     {id: 10, color: "purple", correct: false},
-    {id: 11, color: "ppurple", correct: false},
+    {id: 11, color: "purple", correct: false},
     {id: 12, color: "navy", correct: false},
     {id: 13, color: "navy", correct: false},
     {id: 14, color: "pink", correct: false},

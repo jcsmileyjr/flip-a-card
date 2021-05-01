@@ -30,7 +30,7 @@ function App() {
       setFirstCard(index);
       currentCard.correct = true;
     }else{
-      //Matcht the previous saved card's color to the current card's color
+      //Match the previous saved card's color to the current card's color
       let oldCard = currentDeck[firstCardIndex];
       console.log(`old card color is ${oldCard.color}`)
       console.log(`current card color is ${currentCard.color}`)
@@ -53,7 +53,7 @@ function App() {
 
   const cards = currentDeck;
   const gameArea = cards.map((card, index) => 
-    <Card key={index} id={card.id} cardColor={card.color} getID= {() => {matchCardID(index)}}  />
+    <Card key={index} id={card.id} correct={card.correct} cardColor={card.color} flipCard= {() => {matchCardID(index)}}  />
   );
 
   
