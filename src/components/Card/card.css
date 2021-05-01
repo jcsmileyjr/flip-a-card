@@ -16,8 +16,14 @@
     background-color: white;
 }
 
-.back {
-    background-color: black;
+.showImage {
+    /* display:block */
+    visibility: visible;
+}
+
+.hideImage {
+    /* display: none; */
+    visibility: hidden;
 }
 
 .purple {
