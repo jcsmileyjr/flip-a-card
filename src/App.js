@@ -32,7 +32,6 @@ function App() {
     resetCards();// Manually reset cards correct property
     setScore(0);
     setCounter(60);
-    console.table(currentDeck);
   }
 
   // Manually reset cards correct property in the restartGame()
@@ -74,7 +73,6 @@ function App() {
     setTimeout(() => {
       current.correct = false;
       old.correct = false;
-      console.log("it works")
     },500);
   }
 
