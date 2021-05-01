@@ -32,17 +32,14 @@ function App() {
     }else{
       //Match the previous saved card's color to the current card's color
       let oldCard = currentDeck[firstCardIndex];
-      console.log(`old card color is ${oldCard.color}`)
-      console.log(`current card color is ${currentCard.color}`)
+
       if(currentCard.color === oldCard.color){
         setScore(score + 10);
         oldCard.correct = true;
         currentCard.correct = true;
-       console.log("match")
       }else{
         currentCard.correct = false;
         oldCard.correct = false;
-        console.group("no match")
       }
 
       // Reset the matching
@@ -65,7 +62,7 @@ function App() {
       </section>
       <section className="info">
         <Score score={score} />
-        <Timer time="60" />
+        <Timer />
       </section>
       <section className="art1">
       <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
