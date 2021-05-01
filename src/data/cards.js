@@ -17,14 +17,12 @@ const unmixedCards = [
     {id: 15, color: "pink", correct: false},
     {id: 16, color: "gold", correct: false},
     {id: 18, color: "gold", correct: false},
-    {id: 16, color: "#B0e0e6", correct: false},
-    {id: 18, color: "#B0e0e6", correct: false},
+    {id: 16, color: "brown", correct: false},
+    {id: 18, color: "brown", correct: false},
 ];
 
 const getCards = () => {
-    const cards = unmixedCards.map(card => {
-        return card;
-    });
+    let cards = unmixedCards.sort(() => Math.random() - 0.5);
     return cards;
 }
 
