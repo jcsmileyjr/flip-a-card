@@ -21,6 +21,11 @@ function App() {
     setCurrentDeck(playingCards());
   }
 
+  const restartGame = () => {
+    setCurrentDeck(playingCards());
+    setScore(0);
+  }
+
   // Match the colors
   const matchCardID = (index) => {
     let currentCard = currentDeck[index];
@@ -38,14 +43,22 @@ function App() {
         oldCard.correct = true;
         currentCard.correct = true;
       }else{
-        currentCard.correct = false;
-        oldCard.correct = false;
+        oldCard.correct = true;
+        currentCard.correct = true;
+        showCardsBriefy(oldCard, currentCard);
       }
 
       // Reset the matching
       setFirstCard("");
     }
+  }
 
+  const showCardsBriefy = (old, current) => {
+    setTimeout(() => {
+      current.correct = false;
+      old.correct = false;
+      console.log("it works")
+    },500);
   }
 
   const cards = currentDeck;
