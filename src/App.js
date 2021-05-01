@@ -64,7 +64,7 @@ function App() {
         <h1 className="title__style">Flip the Card</h1>
       </section>
       <section className="info">
-        <Score score="100" />
+        <Score score={score} />
         <Timer time="60" />
       </section>
       <section className="art1">

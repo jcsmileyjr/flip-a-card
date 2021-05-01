@@ -6,10 +6,50 @@
     border: 1px solid navy;
 }
 
+.front {
+    background-color: white;
+}
+
 .back {
+    background-color: black;
+}
+
+.purple {
     background-color: purple;
 }
 
-.front {
+.powderBlue {
+    background-color: #B0e0e6;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.green {
     background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.navy {
+    background-color: navy;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.gold {
+    background-color: gold;
 }

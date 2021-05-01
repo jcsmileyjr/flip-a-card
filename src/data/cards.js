@@ -15,6 +15,10 @@ const unmixedCards = [
     {id: 13, color: "navy", correct: false},
     {id: 14, color: "pink", correct: false},
     {id: 15, color: "pink", correct: false},
+    {id: 16, color: "gold", correct: false},
+    {id: 18, color: "gold", correct: false},
+    {id: 16, color: "#B0e0e6", correct: false},
+    {id: 18, color: "#B0e0e6", correct: false},
 ];
 
 const getCards = () => {
