@@ -10,6 +10,7 @@ import cartoonMan from './assets/clumsy.png';
 import cartoonLady from './assets/laying.png';
 import Restart from './components/Restart/restart';
 import Start from './components/Start/Start';
+import HighScore from './components/HighScore/HighScore';
 
 function App() {
   const [firstCardIndex, setFirstCard] = useState("");
@@ -30,8 +31,7 @@ function App() {
   }
 
   const startTimer = () => {
-    setCounter(60);
-    
+    setCounter(60);    
   }
 
   const restartGame = () => {
@@ -88,14 +88,13 @@ function App() {
   const cards = currentDeck;
   const gameArea = cards.map((card, index) => 
     <Card key={index} id={card.id} correct={card.correct} cardColor={card.color} image={card.picture} flipCard= {() => {matchCardID(index)}}  />
-  );
-
-  
+  );  
 
   return (
     <main className="App">
       <section className="title">
         <h1 className="title__style">Flip the Card</h1>
+        <HighScore highestScore={0} />
       </section>
       <section className="info">
         {counter !== "" &&
@@ -104,6 +103,7 @@ function App() {
         {counter !== "" &&
           <Timer counter={counter} />
         }
+
         {counter === "" &&
         <div className="descrition__container">
           <p className="description">A memory matching card game where you elimate all cards as fast as you can!!!!</p>
@@ -121,7 +121,9 @@ function App() {
       </section>
       <section className="restart">
         <Restart reset={()=>restartGame()} />
-        <Start startTimer={() => startTimer()} />
+        {counter === "" && 
+          <Start startTimer={() => startTimer()} />
+        }
       </section>
     </main>
   );
