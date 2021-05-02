@@ -1,0 +1,29 @@
+
+.endGame__style {
+    text-align: center;
+}
+
+.title--style {
+    color: orangered;
+}
+
+.endGame__list--noDots {
+    list-style-type:none;
+}
+
+.endGame__button--style {
+    background-color: orangered;
+    border: none;
+    color: white;
+    font-size: 2em;
+    padding: .5em;
+    border-radius: 5px;
+    width: 8em;
+}
+@media only screen and (max-width: 1100px) {
+    .endGame__button--style {
+        font-size: 1.5em;
+        padding: .2em;
+        margin-top: 5px;
+    }
+}

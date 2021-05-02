@@ -11,20 +11,32 @@ import cartoonLady from './assets/laying.png';
 import Restart from './components/Restart/restart';
 import Start from './components/Start/Start';
 import HighScore from './components/HighScore/HighScore';
+import EndOfGame from './components/EndOfGame/EndOfGame';
 
 function App() {
   const [firstCardIndex, setFirstCard] = useState("");
   const [score, setScore] = useState(0);
   const [currentDeck, setCurrentDeck] = useState([]);
   const [counter, setCounter] = useState("");
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => { getCards(); }, []);
 
   useEffect(() => {
     const timer =
       counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    return () => clearInterval(timer);
-  }, [counter]);
+      return () => clearInterval(timer);
+    }, [counter]);
+    
+  useEffect(() => {      
+    endGame();
+  })
+
+  const endGame = () => {
+    if(counter <= 0 || counter !== ""){
+      setGameOver(true);
+    }
+  }
 
   const getCards = () => {
     setCurrentDeck(playingCards());
@@ -38,6 +50,7 @@ function App() {
     resetCards();// Manually reset cards correct property
     setScore(0);
     setCounter(60);
+    setGameOver(false);
   }
 
   // Manually reset cards correct property in the restartGame()
@@ -91,41 +104,48 @@ function App() {
   );  
 
   return (
-    <main className="App">
-      <section className="title">
-        <h1 className="title__style">Flip the Card</h1>
-        <HighScore highestScore={0} />
-      </section>
-      <section className="info">
-        {counter !== "" &&
-          <Score score={score} />
-        }
-        {counter !== "" &&
-          <Timer counter={counter} />
-        }
+    <div>
+      {!gameOver &&
+        <main className="App">
+          <section className="title">
+            <h1 className="title__style">Flip the Card</h1>
+            <HighScore highestScore={0} />
+          </section>
+          <section className="info">
+            {counter !== "" &&
+              <Score score={score} />
+            }
+            {counter !== "" &&
+              <Timer counter={counter} />
+            }
 
-        {counter === "" &&
-        <div className="descrition__container">
-          <p className="description">A memory matching card game where you elimate all cards as fast as you can!!!!</p>
-        </div>
-        }
-      </section>
-      <section className="art1">
-      <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
-      </section>
-      <section className="game">
-        {gameArea}
-      </section>
-      <section className="art2">
-        <img src={cartoonMan} className="art__style" alt="cartoon man dropping cards" />
-      </section>
-      <section className="restart">
-        <Restart reset={()=>restartGame()} />
-        {counter === "" && 
-          <Start startTimer={() => startTimer()} />
-        }
-      </section>
-    </main>
+            {counter === "" &&
+            <div className="descrition__container">
+              <p className="description">A memory matching card game where you elimate all cards as fast as you can!!!!</p>
+            </div>
+            }
+          </section>
+          <section className="art1">
+          <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
+          </section>
+          <section className="game">
+            {gameArea}
+          </section>
+          <section className="art2">
+            <img src={cartoonMan} className="art__style" alt="cartoon man dropping cards" />
+          </section>
+          <section className="restart">
+            <Restart reset={()=>restartGame()} />
+            {counter === "" && 
+              <Start startTimer={() => startTimer()} />
+            }
+          </section>
+        </main>
+      }
+      {gameOver &&
+        <EndOfGame score={score} reset={()=>restartGame()} />
+      }
+    </div>
   );
 }
 
