@@ -9,12 +9,13 @@ import Timer from './components/Timer/Timer';
 import cartoonMan from './assets/clumsy.png';
 import cartoonLady from './assets/laying.png';
 import Restart from './components/Restart/restart';
+import Start from './components/Start/Start';
 
 function App() {
   const [firstCardIndex, setFirstCard] = useState("");
   const [score, setScore] = useState(0);
   const [currentDeck, setCurrentDeck] = useState([]);
-  const [counter, setCounter] = useState(60);
+  const [counter, setCounter] = useState("");
 
   useEffect(() => { getCards(); }, []);
 
@@ -26,6 +27,11 @@ function App() {
 
   const getCards = () => {
     setCurrentDeck(playingCards());
+  }
+
+  const startTimer = () => {
+    setCounter(60);
+    
   }
 
   const restartGame = () => {
@@ -44,6 +50,9 @@ function App() {
 
   // Match the colors
   const matchCardID = (index) => {
+    if(counter === ""){
+      return;
+    }
     let currentCard = currentDeck[index];
 
     // If there is no previously saved card, save the current selected's index
@@ -103,6 +112,7 @@ function App() {
       </section>
       <section className="restart">
         <Restart reset={()=>restartGame()} />
+        <Start startTimer={() => startTimer()} />
       </section>
     </main>
   );
