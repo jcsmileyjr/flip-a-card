@@ -98,8 +98,17 @@ function App() {
         <h1 className="title__style">Flip the Card</h1>
       </section>
       <section className="info">
-        <Score score={score} />
-        <Timer counter={counter} />
+        {counter !== "" &&
+          <Score score={score} />
+        }
+        {counter !== "" &&
+          <Timer counter={counter} />
+        }
+        {counter === "" &&
+        <div className="descrition__container">
+          <p className="description">A memory matching card game where you elimate all cards as fast as you can!!!!</p>
+        </div>
+        }
       </section>
       <section className="art1">
       <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
