@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     const timer =
-      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+      counter > -1 && setInterval(() => setCounter(counter - 1), 1000);
       return () => clearInterval(timer);
     }, [counter]);
     
@@ -33,7 +33,7 @@ function App() {
   })
 
   const endGame = () => {
-    if(counter <= 0 || counter !== ""){
+    if(counter < 0){
       setGameOver(true);
     }
   }

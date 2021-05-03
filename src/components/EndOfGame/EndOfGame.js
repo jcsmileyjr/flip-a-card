@@ -9,8 +9,8 @@ const EndOfGame = (props) => {
             <h1 className="title--style"> Winner !!!</h1>
             <h3>Score: {props.score}</h3>
             <hr/>
-            <h3>You have a choice</h3>
-            <h4 className="title--style">Challenge Mode:</h4>
+            <h2>You have a choice</h2>
+            <h3 className="title--style">Challenge Mode:</h3>
             <ul className="endGame__list--noDots">
                 <li>45 seconds instead of 60 seconds</li>
                 <li>Lose a point for every incorrect match</li>
