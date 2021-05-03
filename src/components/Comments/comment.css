@@ -1,0 +1,10 @@
+
+.comment__section--style {
+    width: 100%;
+    text-align: center;
+}
+
+.comment__text--style {
+    margin: 3px;
+    font-size: .8rem;
+}

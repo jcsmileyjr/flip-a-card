@@ -3,3 +3,13 @@
 .timer__title--style {
     font-weight: bold;
 }
+
+.timer__section--style {
+    margin: 2px 0;
+}
+
+@media only screen and (max-width: 1100px) {
+    .timer__section--style {
+        font-size: 1.5rem;
+    }
+}

@@ -2,6 +2,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import playingCards from './data/cards';
+import comments from './data/snarkyComments';
 
 import Card from './components/Card/Card';
 import Score from './components/Score/Score';
@@ -12,6 +13,7 @@ import Restart from './components/Restart/restart';
 import Start from './components/Start/Start';
 import HighScore from './components/HighScore/HighScore';
 import EndOfGame from './components/EndOfGame/EndOfGame';
+import Comments from './components/Comments/Comments';
 
 function App() {
   const [firstCardIndex, setFirstCard] = useState("");
@@ -20,8 +22,10 @@ function App() {
   const [counter, setCounter] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [highestScore, setHighestScore] = useState(0);
+  const [snarkyComments, setComments] = useState([]);
+  const [currentSnark, setSnark] = useState("");
 
-  useEffect(() => { getCards(); startGameHighestScore() }, []);
+  useEffect(() => { getCards(); startGameHighestScore(); getComments()}, []);
 
   useEffect(() => {
     const timer =
@@ -46,6 +50,16 @@ function App() {
 
   const getCards = () => {
     setCurrentDeck(playingCards());
+  }
+
+  const getComments = () => {
+    setComments(comments);
+    console.log(comments)
+  }
+
+  const getRandomComment = () => {
+    let message = snarkyComments[Math.floor(Math.random()*snarkyComments.length)];
+   setSnark(message);
   }
 
   const startGameHighestScore = () => {
@@ -105,6 +119,8 @@ function App() {
       // Reset the matching
       setFirstCard("");
     }
+
+    getRandomComment();
   }
 
   const showCardsBriefy = (old, current) => {
@@ -146,15 +162,17 @@ function App() {
           </section>
           <section className="game">
             {gameArea}
+            <Comments comment={currentSnark} />
           </section>
           <section className="art2">
             <img src={cartoonMan} className="art__style" alt="cartoon man dropping cards" />
           </section>
           <section className="restart">
-            <Restart reset={()=>restartGame()} />
             {counter === "" && 
               <Start startTimer={() => startTimer()} />
             }
+
+            <Restart reset={()=>restartGame()} />
           </section>
         </main>
       }
