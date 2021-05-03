@@ -19,12 +19,13 @@ function App() {
   const [currentDeck, setCurrentDeck] = useState([]);
   const [counter, setCounter] = useState("");
   const [gameOver, setGameOver] = useState(false);
+  const [highestScore, setHighestScore] = useState(0);
 
-  useEffect(() => { getCards(); }, []);
+  useEffect(() => { getCards(); startGameHighestScore() }, []);
 
   useEffect(() => {
     const timer =
-      counter > -1 && setInterval(() => setCounter(counter - 1), 1000);
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
       return () => clearInterval(timer);
     }, [counter]);
     
@@ -33,13 +34,28 @@ function App() {
   })
 
   const endGame = () => {
-    if(counter < 0){
+    if(counter <= 0 && counter !== ""){
       setGameOver(true);
+      
+      if(highestScore < score){
+        localStorage.setItem("flipTheCard-HighestScore", score);
+        setHighestScore(score);
+      }
     }
   }
 
   const getCards = () => {
     setCurrentDeck(playingCards());
+  }
+
+  const startGameHighestScore = () => {
+    const lastHighestScore = localStorage.getItem("flipTheCard-HighestScore");
+    
+    if(lastHighestScore === null){
+      setHighestScore(0);
+    }else{
+      setHighestScore(lastHighestScore);
+    }
   }
 
   const startTimer = () => {
@@ -109,7 +125,7 @@ function App() {
         <main className="App">
           <section className="title">
             <h1 className="title__style">Flip the Card</h1>
-            <HighScore highestScore={0} />
+            <HighScore highestScore={highestScore} />
           </section>
           <section className="info">
             {counter !== "" &&
