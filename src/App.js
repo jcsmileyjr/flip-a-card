@@ -107,6 +107,9 @@ function App() {
     }
     let currentCard = currentDeck[index];
 
+    if(currentCard.correct){
+      return;
+    }
     // If there is no previously saved card, save the current selected's index
     if(firstCardIndex === ""){
       setFirstCard(index);
