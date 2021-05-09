@@ -31,6 +31,8 @@ The goal was to build a capstone project along side my students in the Launch Co
 ### WireFrame
 
 ![Screen-shot of Wireframe in use](src/assets/flip-the-card-tablet-1.png)
+
+#### Trello
 ![Screen-shot of Trello](src/assets/Flip-board-Tasks-2.PNG)
 
 ### How to play:
