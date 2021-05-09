@@ -24,6 +24,7 @@ function App() {
   const [highestScore, setHighestScore] = useState(0);
   const [snarkyComments, setComments] = useState([]);
   const [currentSnark, setSnark] = useState("");
+  const [challengeMode, setChallengeMode] = useState(false);
 
   useEffect(() => { getCards(); startGameHighestScore(); getComments()}, []);
 
@@ -36,6 +37,11 @@ function App() {
   useEffect(() => {      
     endGame();
   })
+
+  const startChallengeMode = () => {
+    setChallengeMode(true);
+    restartGame();
+  }
 
   const endGame = () => {
     if(counter <= 0 && counter !== ""){
@@ -54,7 +60,6 @@ function App() {
 
   const getComments = () => {
     setComments(comments);
-    console.log(comments)
   }
 
   const getRandomComment = () => {
@@ -73,13 +78,17 @@ function App() {
   }
 
   const startTimer = () => {
-    setCounter(60);    
+    if(challengeMode){
+      setCounter(45);
+    }else{
+      setCounter(60);
+    }
   }
 
   const restartGame = () => {
     resetCards();// Manually reset cards correct property
     setScore(0);
-    setCounter(60);
+    startTimer(); // Reset the timer based on if challenge mode is started
     setGameOver(false);
   }
 
@@ -114,6 +123,11 @@ function App() {
         oldCard.correct = true;
         currentCard.correct = true;
         showCardsBriefy(oldCard, currentCard);
+
+        // If in challenge mode, user lose 3 points for each incorrect choice
+        if(challengeMode){
+          setScore(score -3);
+        }
       }
 
       // Reset the matching
@@ -140,7 +154,7 @@ function App() {
       {!gameOver &&
         <main className="App">
           <section className="title">
-            <h1 role="title" className="title__style">Flip the Card</h1>
+            <h1 className="title__style">Flip the Card</h1>
             <HighScore highestScore={highestScore} />
           </section>
           <section className="info">
@@ -177,7 +191,7 @@ function App() {
         </main>
       }
       {gameOver &&
-        <EndOfGame score={score} reset={()=>restartGame()} />
+        <EndOfGame score={score} challenge={() => {startChallengeMode()}} reset={()=>restartGame()} />
       }
     </div>
   );

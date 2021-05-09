@@ -2,7 +2,6 @@ import './endOfGame.css';
 
 import Restart from '../Restart/restart';
 
-
 const EndOfGame = (props) => {
     return(
         <article className="endGame__style">
@@ -15,7 +14,7 @@ const EndOfGame = (props) => {
                 <li>45 seconds instead of 60 seconds</li>
                 <li>Lose a point for every incorrect match</li>
             </ul>
-            <button aria-label="Button to start challenge mode" type="button" className="endGame__button--style">Challenge Mode</button>
+            <button onClick={()=> {props.challenge()}} aria-label="Button to start challenge mode" type="button" className="endGame__button--style">Challenge Mode</button>
             <p>or</p>
             <Restart reset={props.reset} />
         </article>
