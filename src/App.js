@@ -44,13 +44,19 @@ function App() {
   }
 
   const endGame = () => {
-    if(counter <= 0 && counter !== ""){
+    if((counter <= 0 && counter !== "") || score === 100){
       setGameOver(true);
       
       if(highestScore < score){
         localStorage.setItem("flipTheCard-HighestScore", score);
         setHighestScore(score);
       }
+    }
+  }
+
+  const checkIfAllCardsShowing = () => {
+    if(score >= 100){
+      endGame();
     }
   }
 
@@ -100,7 +106,7 @@ function App() {
     });
   }
 
-  // Match the colors
+  // Check if the cards are a match, if so, then set card to always show the image, update the score, etc.
   const matchCardID = (index) => {
     if(counter === ""){
       return;
@@ -117,6 +123,7 @@ function App() {
 
       if(currentCard.color === oldCard.color){
         setScore(score + 10);
+        //checkIfAllCardsShowing();
         oldCard.correct = true;
         currentCard.correct = true;
       }else{
