@@ -5,9 +5,9 @@ import React from 'react';
 const Card = props => {
 
     return(
-        <main className="card__style front" onClick={()=> {props.flipCard()}}>
-            <img src={props.image} className={`image ${props.correct ? "showImage" : "hideImage"}`} alt="" />
-        </main>
+        <article className="card__style front" onClick={()=> {props.flipCard()}}>
+            <img aria-label="Clickable card that shows an image when clicked" src={props.image} className={`image ${props.correct ? "showImage" : "hideImage"}`} alt="" />
+        </article>
     );
 }
 

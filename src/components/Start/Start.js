@@ -8,9 +8,9 @@ const Start = (props) => {
     }
 
     return(
-        <main>
-            <button type="button" className={`start__style ${disable?"greyOut":""}`} onClick={() => {props.startTimer(); startGame()}} disabled={disable} >Play</button>
-        </main>
+        <article>
+            <button aria-label="Button to start the timer for the game" type="button" className={`start__style ${disable?"greyOut":""}`} onClick={() => {props.startTimer(); startGame()}} disabled={disable} >Play</button>
+        </article>
     )
 };
 

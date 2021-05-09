@@ -2,9 +2,9 @@ import './highScore.css';
 
 const HighScore = (props) => {
     return(
-        <main className="oldScore">
-            <h2 className="oldScore__title--style ">Highest Score: {props.highestScore}</h2>
-        </main>
+        <article className="oldScore">
+            <h2 aria-label="Display the current highest score" className="oldScore__title--style ">Highest Score: {props.highestScore}</h2>
+        </article>
     );
 }
 

@@ -140,7 +140,7 @@ function App() {
       {!gameOver &&
         <main className="App">
           <section className="title">
-            <h1 className="title__style">Flip the Card</h1>
+            <h1 role="title" className="title__style">Flip the Card</h1>
             <HighScore highestScore={highestScore} />
           </section>
           <section className="info">
@@ -152,13 +152,13 @@ function App() {
             }
 
             {counter === "" &&
-            <div className="descrition__container">
-              <p className="description">A memory matching card game where you elimate all cards as fast as you can!!!!</p>
-            </div>
+            <article role="note" className="descrition__container">
+              <p aria-label="Description of the game" className="description">A memory matching card game where you elimate all cards as fast as you can!!!!</p>
+            </article>
             }
           </section>
           <section className="art1">
-          <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
+            <img src={cartoonLady} className="art__style floatRight" alt="cartoon lady laying down" />
           </section>
           <section className="game">
             {gameArea}
