@@ -54,12 +54,6 @@ function App() {
     }
   }
 
-  const checkIfAllCardsShowing = () => {
-    if(score >= 100){
-      endGame();
-    }
-  }
-
   const getCards = () => {
     setCurrentDeck(playingCards());
   }
@@ -123,7 +117,6 @@ function App() {
 
       if(currentCard.color === oldCard.color){
         setScore(score + 10);
-        //checkIfAllCardsShowing();
         oldCard.correct = true;
         currentCard.correct = true;
       }else{
@@ -162,7 +155,7 @@ function App() {
         <main className="App">
           <section className="title">
             <h1 className="title__style">Flip the Card</h1>
-            <HighScore highestScore={highestScore} />
+            <HighScore highestScore={highestScore} challenge={challengeMode} />
           </section>
           <section className="info">
             {counter !== "" &&

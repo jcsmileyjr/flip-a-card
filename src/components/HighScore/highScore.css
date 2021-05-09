@@ -7,3 +7,8 @@
 .oldScore__title--style {
     margin:5px;    
 }
+
+.challengeMode--style {
+    color: #E24272;
+    font-weight: bolder;
+}
