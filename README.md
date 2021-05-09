@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Flip a Card
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<hr>
 
-## Available Scripts
+![gif of app](src/assets/flip-a-card-5.gif)
 
-In the project directory, you can run:
+### Table of Contents
 
-### `npm start`
+1. Project Demo Link
+2. Purpose
+3. Motivation
+4. Wireframe
+5. How to play
+6. Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project Demo Link: [Flip a Card](https://jcsmiley-flip-a-card.netlify.app/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Purpose:
 
-### `npm test`
+A React web game where the user race against time to match unturned cards.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Motivation:
 
-### `npm run build`
+The goal was to build a capstone project along side my students in the Launch Code tech boot-camp. This meant:
+1. Pre-planning with hi-fi wire-framing using Adobe XD
+2. Using Trello for task management
+3. Creating user stories to help plan tasks and determing what into the MVP, alpha, and beta app
+4. Accessibility enhancements (Using images, colors, and etc. to show a choice, keyboard navigation and playability, HTML semantics, includes roles and aria-labels)
+5. Intentional breaking the code into smaller components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### WireFrame
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screen-shot of Wireframe in use](src/assets/flip-the-card-tablet-1.png)
+![Screen-shot of Trello](src/assets/Flip-board-Tasks-2.PNG)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### How to play:
 
-### `npm run eject`
+- The player have to press the start button to start the timer and game
+- The player will click on a card to flip it and show it's image
+- The player goal is to find two matching cards
+- The player has 60 seconds in a regular game and 45 secons in challenge mode to find all 10 sets of cards
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### This app was built with the following technologies:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**React:** JavaScript front-end library for building user interfaces
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Netlify**: Web developer platform for hosting infrastructure, continuous integration, deployment pipeline with GitHub, and serverless backend services.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Git-Hub:** Web-based version control repository and Internet hosting service
 
-## Learn More
+**Abode XD** A wire-framing tool used to create a mockup/visual of what is to be coded
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**JavaScript:** Object-oriented programming language for web pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**HTML:** Mark-up language for creating web pages
 
-### Code Splitting
+**CSS:** A formatting language for styling web pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_Updated by JC Smiley in May of 2021_
