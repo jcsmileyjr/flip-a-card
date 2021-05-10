@@ -27,6 +27,7 @@ The goal was to build a capstone project along side my students in the Launch Co
 3. Creating user stories to help plan tasks and determing what into the MVP, alpha, and beta app
 4. Accessibility enhancements (Using images, colors, and etc. to show a choice, keyboard navigation and playability, HTML semantics, includes roles and aria-labels)
 5. Intentional breaking the code into smaller components.
+6. Integrating user feedback: Challenge mode, animation, etc.
 
 ### WireFrame
 
